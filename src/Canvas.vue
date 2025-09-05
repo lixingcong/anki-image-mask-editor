@@ -1,5 +1,5 @@
 <template>
-  <canvas ref="canvas" class="coveringCanvas"></canvas>
+  <canvas ref="canvas"></canvas>
 </template>
 
 <script lang="ts" setup>
@@ -210,14 +210,4 @@ watch(reorder, (newVal)=>{
 </script>
 
 <style scoped>
-.coveringCanvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  margin-inline: auto;
-  /* background-color: rgba(255, 0, 0, .1); */
-  z-index: 1;
-}
-
 </style>

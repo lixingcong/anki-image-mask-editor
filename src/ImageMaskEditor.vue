@@ -17,6 +17,7 @@
         :reorder="canvasProps.reorder"
         @clicked-rect-index="onClickedShape"
         @reorder-done="stopReorder"
+        class="coveringCanvas"
         ></Canvas>
     </div>
   </div>
@@ -157,6 +158,16 @@ button{
   left: 0;
   right: 0;
   margin-inline: auto;
+}
+
+.coveringCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  /* background-color: rgba(255, 0, 0, .1); */
+  z-index: 1;
 }
 
 </style>
