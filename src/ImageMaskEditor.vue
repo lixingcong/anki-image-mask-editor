@@ -1,33 +1,30 @@
 <template>
-  <div :class="hideContent ? 'card-title-hidden' : 'card-title'" @click="hideContent = !hideContent">Image Mask Editor</div>
-  <div :class="hideContent ? 'card-content-hidden' : 'card-content'">
-    <div>
-      Upload:
-      <input type="file" ref="fileInput" @change="openFile" accept=".png,.jpg,.gif,.jpeg,.webp" />
-      <button @click="importFromJson">Import Json</button>
-      <button @click="exportToJson">Export Json</button>
-    </div>
+  <div>
+    Upload:
+    <input type="file" ref="fileInput" @change="openFile" accept=".png,.jpg,.gif,.jpeg,.webp" />
+    <button @click="importFromJson">Import Json</button>
+    <button @click="exportToJson">Export Json</button>
+  </div>
 
-    <div class="outsideWrapper" ref="outsideWrapper">
-      <div class="insideWrapper">
-        <img ref="backgroundImage" class="coveredImage"></img>
-        <Canvas
-          :rects="canvasProps.rects"
-          :canvasSize="canvasProps.canvasSize"
-          :hasLoadedImage="canvasProps.hasLoadedImage"
-          :selectedRectIndex="canvasProps.selectedRectIndex"
-          :reorder="canvasProps.reorder"
-          @clicked-rect-index="onClickedShape"
-          @reorder-done="stopReorder"
-          ></Canvas>
-      </div>
+  <div class="outsideWrapper" ref="outsideWrapper">
+    <div class="insideWrapper">
+      <img ref="backgroundImage" class="coveredImage"></img>
+      <Canvas
+        :rects="canvasProps.rects"
+        :canvasSize="canvasProps.canvasSize"
+        :hasLoadedImage="canvasProps.hasLoadedImage"
+        :selectedRectIndex="canvasProps.selectedRectIndex"
+        :reorder="canvasProps.reorder"
+        @clicked-rect-index="onClickedShape"
+        @reorder-done="stopReorder"
+        ></Canvas>
     </div>
+  </div>
 
-    <div class="btn-container">
-      <button @click="deleteClicked" :disabled="reorder">Delete Selected</button>
-      <button @click="clearAllRects" :disabled="reorder">Clear All</button>
-      <label><input type="checkbox" v-model="reorder"></input>Re-order</label>
-    </div>
+  <div class="btn-container">
+    <button @click="deleteClicked" :disabled="reorder">Delete Selected</button>
+    <button @click="clearAllRects" :disabled="reorder">Clear All</button>
+    <label><input type="checkbox" v-model="reorder"></input>Re-order</label>
   </div>
 </template>
 
@@ -44,7 +41,6 @@ const backgroundImage = ref()
 const outsideWrapper = ref()
 let clickedRectIndex = -1
 const { toClipboard } = useClipboard()
-const hideContent = ref(true)
 
 const canvasProps:CanvasProps = reactive({
   canvasSize:{w:0, h:0},

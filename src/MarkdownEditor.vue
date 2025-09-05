@@ -1,24 +1,19 @@
 <template>
-    <div :class="hideContent ? 'card-title-hidden' : 'card-title'" @click="hideContent = !hideContent">Markdown Live
-        Preview</div>
-    <div :class="hideContent ? 'card-content-hidden' : 'card-content'">
-        <div ref="containerDiv" class="split-container">
-            <div ref="edit" class="column editor-pane">
-                <div class="editor-wrapper">
-                    <textarea v-model="textAreaText" class="editor"></textarea>
-                </div>
-            </div>
-
-            <div ref="splitDivider" class="split-divider"></div>
-
-            <div ref="preview" class="column preview-pane">
-                <button v-show="showCopyButton" @click="copyHtml" class="absolute-right">Copy</button>
-                <div class="preview-wrapper">
-                    <div class="markdown-body" v-html="markdownOutputHtml"></div>
-                </div>
+    <div ref="containerDiv" class="split-container">
+        <div ref="edit" class="column editor-pane">
+            <div class="editor-wrapper">
+                <textarea v-model="textAreaText" class="editor"></textarea>
             </div>
         </div>
 
+        <div ref="splitDivider" class="split-divider"></div>
+
+        <div ref="preview" class="column preview-pane">
+            <button @click="copyHtml" class="absolute-right">Copy</button>
+            <div class="preview-wrapper">
+                <div class="markdown-body" v-html="markdownOutputHtml"></div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -31,7 +26,6 @@ import useClipboard from 'vue-clipboard3'
 
 const { toClipboard } = useClipboard()
 
-const hideContent = ref(false)
 const splitDivider = ref()
 const edit = ref()
 const preview = ref()
@@ -161,8 +155,6 @@ const copyHtml = () => {
     }
 }
 
-const showCopyButton  = computed(()=> !hideContent.value )
-
 </script>
 
 <style scoped>
@@ -222,7 +214,6 @@ const showCopyButton  = computed(()=> !hideContent.value )
 }
 
 .absolute-right{
-    position: absolute;
-    right: 1.5em;
+    float:right;
 }
 </style>

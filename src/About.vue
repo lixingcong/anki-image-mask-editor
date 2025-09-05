@@ -1,9 +1,6 @@
 <template>
-    <div :class="hideContent ? 'card-title-hidden' : 'card-title'" @click="hideContent = !hideContent">About</div>
-    <div :class="hideContent ? 'card-content-hidden' : 'card-content'">
-        <div>
-            Source code: <a target="_blank" :href="props.url">Github</a>
-        </div>
+    <div>
+        Source code: <a target="_blank" :href="props.url">Github</a>
     </div>
 </template>
 
