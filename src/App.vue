@@ -10,7 +10,7 @@ import ImageMaskEditor from './ImageMaskEditor.vue';
 import MarkdownEditor from './MarkdownEditor.vue';
 import "@/view/style.css"
 
-const githubUrl = 'http://example.com'
+const githubUrl = 'https://github.com/lixingcong/anki-image-mask-editor'
 </script>
 
 <style scoped>

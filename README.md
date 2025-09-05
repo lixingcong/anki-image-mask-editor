@@ -1,6 +1,8 @@
-# anki-image-mask-editor
+# Anki Image Mask Editor
 
-A simple tool
+Demo: [website](https://lixingcong.github.io/anki-image-mask-editor)
+
+A simple tool to:
 
 - Edit image mask, then copy json to anki card
 - Preview markdown, then copy HTML code to anki card
@@ -8,3 +10,4 @@ A simple tool
 # Thanks to
 
 - [markdown-live-preview](https://github.com/tanabe/markdown-live-preview)
+- [Anki](https://apps.ankiweb.net)
